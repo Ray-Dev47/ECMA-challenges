@@ -45,3 +45,8 @@ function build(){
     
     document.body.appendChild(player.el)
 }
+
+
+
+
+
