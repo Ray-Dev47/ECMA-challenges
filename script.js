@@ -45,3 +45,23 @@ function build(){
     
     document.body.appendChild(player.el)
 }
+
+
+ // Live Clock JavaScript
+const clockSpan = document.querySelector('.clockSpan')
+
+function getTime(){
+	let myDay = new Date();
+	let mySecs = myDay.getSeconds();
+	let myHour = myDay.getHours();
+	let myMins = myDay.getMinutes();
+	
+	clockSpan.textContent = ("0" + myHour).substr(-2) + ":" + ("0" + myMins).substr(-2) + ":" + ("0" + mySecs).substr(-2);
+}
+// getTime()
+setInterval(getTime, 1000);
+
+
+
+
+
