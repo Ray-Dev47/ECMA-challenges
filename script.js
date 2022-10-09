@@ -63,5 +63,36 @@ setInterval(getTime, 1000);
 
 
 
+// challenge 5 - Check if a value exists in the local storage, if it does, increment it by one, otherwise create it and set it to:
+// Output the value in the console
+let numStorage;
+let cnt = 1
+cnt = Number(cnt)
+cnt++
+localStorage.setItem('numStorage', cnt++);
+// localStorage.clear('numStorage')  // test to clear 
+
+function checkIfOnStorage(){
+    if(localStorage.getItem('numStorage')!== null){
+        alert(localStorage.getItem('numStorage'))
+        console.log(`storage exist by ${localStorage.getItem('numStorage')}`)
+        
+    } else{
+        console.log('Storage does not exist')
+    }
+}
+checkIfOnStorage()
 
 
+// Alternate method
+// const myObj = {name: 'RayDue', last: 'Idengeli'}
+
+// if(localStorage.getItem('num')){
+//     let cnt = localStorage.getItem('num')
+//     cnt = Number(cnt)
+//     cnt++;
+//     localStorage.setItem('num',cnt)
+// } else{
+//     localStorage.setItem('num',1)
+// }
+// console.log(localStorage.getItem('num'))
