@@ -47,5 +47,5 @@ let downloadTimer = setInterval(function(){
     } else{
         document.querySelector('.countDownClass').innerHTML = `${timeLeft}  Seconds remaining`
     }
-    timeLeft = timeLeft - 1
+    timeLeft = timeLeft - 1  // 20 - 1
 }, 1000)
