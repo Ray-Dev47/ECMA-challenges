@@ -49,3 +49,6 @@ let downloadTimer = setInterval(function(){
     }
     timeLeft = timeLeft - 1  // 20 - 1
 }, 1000)
+
+
+
