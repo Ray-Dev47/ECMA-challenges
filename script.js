@@ -17,3 +17,9 @@ let date = new Date();
 console.log(date.addDays(7)); // works
 
 
+// challenge 10 - Multiply an input field value by 10 on button press. Provide error messages to the user of the input is not correct format.
+// Clear the input value each time.
+
+
+
+
