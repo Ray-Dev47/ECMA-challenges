@@ -13,7 +13,6 @@ Date.prototype.addDays = function(days){
     date.setDate(date.getDate() + days);
     return date;
 }
-
 let date = new Date();
 console.log(date.addDays(7)); // works
 
