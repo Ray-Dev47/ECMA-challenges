@@ -13,8 +13,29 @@ Date.prototype.addDays = function(days){
     date.setDate(date.getDate() + days);
     return date;
 }
-
 let date = new Date();
 console.log(date.addDays(7)); // works
 
 
+// challenge 10 - Multiply an input field value by 10 on button press. Provide error messages to the user of the input is not correct format.
+// Clear the input value each time.
+
+
+
+
+let xhrChuck = new XMLHttpRequest();
+const chuckUrl = "https://api.chucknorris.io/jokes/random"
+xhrChuck.onreadystatechange = function(){
+	console.log(xhrChuck.readyState);
+	if(this.readyState == 4 && this.status == 200){
+		console.log(xhrChuck.response);
+       // the API is in JSON format so we will need to convert it to javascript object
+		let chuckJoke = JSON.parse(xhrChuck.response)
+		console.log(chuckJoke.id)// shows the id associated with a joke
+		console.log(chuckJoke.value); // shows the actual joke
+		// document.write(chuckJoke.value)
+
+	}
+}
+xhrChuck.open('GET', chuckUrl);
+xhrChuck.send()
