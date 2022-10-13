@@ -23,3 +23,19 @@ console.log(date.addDays(7)); // works
 
 
 
+let xhrChuck = new XMLHttpRequest();
+const chuckUrl = "https://api.chucknorris.io/jokes/random"
+xhrChuck.onreadystatechange = function(){
+	console.log(xhrChuck.readyState);
+	if(this.readyState == 4 && this.status == 200){
+		console.log(xhrChuck.response);
+       // the API is in JSON format so we will need to convert it to javascript object
+		let chuckJoke = JSON.parse(xhrChuck.response)
+		console.log(chuckJoke.id)// shows the id associated with a joke
+		console.log(chuckJoke.value); // shows the actual joke
+		// document.write(chuckJoke.value)
+
+	}
+}
+xhrChuck.open('GET', chuckUrl);
+xhrChuck.send()
