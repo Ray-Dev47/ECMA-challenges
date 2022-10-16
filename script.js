@@ -39,3 +39,20 @@ xhrChuck.onreadystatechange = function(){
 }
 xhrChuck.open('GET', chuckUrl);
 xhrChuck.send()
+
+
+
+// random joke api -- https://official-joke-api.appspot.com/random_joke
+let xhrRanJoke = new XMLHttpRequest();
+const ranJokeUrl = "https://official-joke-api.appspot.com/random_joke"
+console.log(xhrRanJoke)
+xhrRanJoke.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        console.log(xhrRanJoke.response);
+        let parsedJoke = JSON.parse(xhrRanJoke.response)
+        console.log(parsedJoke.setup)
+        console.log(parsedJoke.punchline)
+    }
+}
+xhrRanJoke.open('GET',ranJokeUrl)
+xhrRanJoke.send()
