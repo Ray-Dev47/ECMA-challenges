@@ -56,3 +56,27 @@ xhrRanJoke.onreadystatechange = function(){
 }
 xhrRanJoke.open('GET',ranJokeUrl)
 xhrRanJoke.send()
+
+
+// 
+let fakeApi = document.getElementById('fakeApi')
+let fakeUrl = 'https://jsonplaceholder.typicode.com/users'
+// let el4 = document.createElement('input')
+// el4.setAttribute('type','number');
+// el4.setAttribute('value','5');
+
+fakeApi.addEventListener('click', getFakeList)
+     function getFakeList(){
+        //   let inputUrl = fakeUrl + '' + el4.value
+    fetch(fakeUrl)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data){
+        console.log(data)
+    })
+    // console.log('ray')
+
+     }
+   
+
