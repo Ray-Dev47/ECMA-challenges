@@ -60,15 +60,16 @@ xhrRanJoke.send()
 
 // 
 let fakeApi = document.getElementById('fakeApi')
-let fakeUrl = 'https://jsonplaceholder.typicode.com/users'
-// let el4 = document.createElement('input')
-// el4.setAttribute('type','number');
-// el4.setAttribute('value','5');
+let fakeUrl = 'https://jsonplaceholder.typicode.com/users/'
+let el4 = document.createElement('input')
+el4.setAttribute('type','number');
+el4.setAttribute('value','5');
+document.body.appendChild(el4);
 
 fakeApi.addEventListener('click', getFakeList)
      function getFakeList(){
-        //   let inputUrl = fakeUrl + '' + el4.value
-    fetch(fakeUrl)
+          let inputUrl = fakeUrl + '?_limit=' + el4.value
+    fetch(inputUrl)
     .then(function(response){
         return response.json()
     })
