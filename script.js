@@ -125,3 +125,7 @@ btn.addEventListener('click', function(){
     let tipCost = (0.15 * cost).toFixed(2)
     showTip.textContent = `You should tip $${tipCost} on $${cost} Bill`
 })
+
+
+// challenge 12 - Customized JavaScript Messages
+// Get input value and output to the screen a welcome message to the users name that is entered into the input field
