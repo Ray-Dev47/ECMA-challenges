@@ -108,6 +108,20 @@ function loadJSON(){
         }
     })
 
-    document.body.appendChild(mainUL);
+    // document.body.appendChild(mainUL);
 }
 
+//  Challenge 11 - Use Math to calculate a value. Get an input from the user and use it in the calculation. 
+// Update the HTML to show the final value.
+const btn = document.getElementById('addTip');
+const showTip = document.getElementById('showTip')
+const tipInput = document.createElement('input');
+tipInput.setAttribute('type','number');
+// tipInput.setAttribute('value', "")
+document.body.appendChild(tipInput)
+
+btn.addEventListener('click', function(){
+    const cost = tipInput.value
+    let tipCost = 0.15 * cost
+    showTip.textContent = `You should tip $${tipCost} on $${cost}`
+})
