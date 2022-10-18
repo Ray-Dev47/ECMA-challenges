@@ -140,3 +140,27 @@ function func(){
     showMsg.textContent = customMsg
 }
 
+
+// challemge 13 - Customized message using javascript depending on time of the day
+let dayMsg = document.getElementById('dayMsg');
+let outputMsg = document.querySelector('.output')
+
+dayMsg.addEventListener('click', function(){
+    let d = new Date()
+    let timeMsg = d.getHours();
+    outputMsg.style.backgroundColor = 'blue'
+    outputMsg.style.color = 'white'
+    outputMsg.style.padding = '40px'
+    outputMsg.style.fontSize = '50px'
+    if(timeMsg < 12){
+        outputMsg.innerHTML = 'Its Morning!'
+    } 
+    if(timeMsg > 17){
+        outputMsg.innerHTML = 'Its evening!'
+    } 
+    if(timeMsg == 12 ){
+        outputMsg.innerHTML = 'Its afternoon!'
+    } 
+
+})
+
