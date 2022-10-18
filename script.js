@@ -129,3 +129,14 @@ btn.addEventListener('click', function(){
 
 // challenge 12 - Customized JavaScript Messages
 // Get input value and output to the screen a welcome message to the users name that is entered into the input field
+const showMsg = document.querySelector('.showMsg');
+const msgInput = document.getElementById('msgInput');
+const btn2 = document.getElementById('custom')
+
+btn2.addEventListener('click', func)
+function func(){
+    let inputMsg = msgInput.value
+    let customMsg = `Hello, Welcome ${inputMsg}!`
+    showMsg.textContent = customMsg
+}
+
