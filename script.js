@@ -79,5 +79,35 @@ fakeApi.addEventListener('click', getFakeList)
     // console.log('ray')
 
      }
-   
+
+// challenge - get data https://jsonplaceholder.typicode.com/todos, create elements that are green for completed  and red for not completed items in the list. populate the page div
+
+const todoUrl = 'https://jsonplaceholder.typicode.com/todos'
+const mainUL = document.createElement('ol')
+let showOnDiv = document.getElementById('todo')
+loadJSON()
+function loadJSON(){
+    fetch(todoUrl)
+    .then(function(resp){
+        return resp.json()
+    })
+    .then(function(data){
+        console.log(data)
+        for(let i = 0; i < data.length; i++){
+            let LI = document.createElement('li');         
+           LI.innerHTML = data[i].title;
+           mainUL.appendChild(LI)
+           
+        //    if(data[i].completed === false){
+        //     LI.style.color = 'red'
+        // } else{
+        //     LI.style.color = 'blue'
+        // } 
+        // alterative to if else---- tenary operator
+        LI.style.color = data[i].completed === false ? "green" : "red"
+        }
+    })
+
+    document.body.appendChild(mainUL);
+}
 
