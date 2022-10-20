@@ -1,7 +1,7 @@
 // challenge 8 -try to code the URL below and encode/decode with all encode/decode url method
-let url2 = 'https://wwww.discoveryvip.com/?id=user-id&more=hello world';
-console.log(decodeURI(url2));
-console.log(decodeURIComponent(url2)); 
+// let url2 = 'https://wwww.discoveryvip.com/?id=user-id&more=hello world';
+// console.log(decodeURI(url2));
+// console.log(decodeURIComponent(url2)); 
 
 
 
@@ -162,5 +162,28 @@ dayMsg.addEventListener('click', function(){
         outputMsg.innerHTML = 'Its afternoon!'
     } 
 
+})
+
+// challenge - Create a coin toss application that tells if its a head or a tail, Note: the game will be you vs computer
+const tossArray = ["head", "tail"];
+const playerBtns = ['player', 'Computer']
+
+let toss = Math.floor(Math.floor(Math.random() * tossArray.length))
+let playeHead;
+let compTail;
+
+
+const ArrMsgBtn = document.getElementById('ArrMsgBtn');
+
+ArrMsgBtn.addEventListener('click', function(){
+      let msg = ['Hello', 'Good Morning', 'Good Afternoon', 'Good Evening', 'Merry Christmas', 'How far', 'happy Val'];
+      let myrandom = Math.floor(Math.random() * msg.length)
+    //   console.log(myrandom)
+
+      function showMsgOnHTML(){
+         document.getElementById('arrMsg').innerHTML = msg[myrandom]
+      }
+      
+      showMsgOnHTML()
 })
 
