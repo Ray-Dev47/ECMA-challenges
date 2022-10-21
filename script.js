@@ -165,25 +165,30 @@ dayMsg.addEventListener('click', function(){
 })
 
 // challenge - Create a coin toss application that tells if its a head or a tail, Note: the game will be you vs computer
+
+let tossMsg = document.querySelector('.message')
+const playerBtns = document.querySelectorAll('.btns')
 const tossArray = ["head", "tail"];
-const playerBtns = ['player', 'Computer']
+let score = [0,0]
 
-let toss = Math.floor(Math.floor(Math.random() * tossArray.length))
-let playeHead;
-let compTail;
+for(let i = 0; i < playerBtns.length; i++){ 
+    playerBtns[i].addEventListener('click', tossCoin)
+}
+        function tossCoin(e){
+            let playerGuess = e.target.innerText
+            let computerToss = Math.floor(Math.random() * tossArray.length)
+            let computerGuess = tossArray[computerToss]
+            tossMsg.innerHTML = 'Computer Selected:    ' + computerGuess + '<br>';
+            let output;
+            if(playerGuess === computerGuess){
+                output = 'Player Wins '
+                score[0]++
+            } else{
+                output = 'Computer Wins'
+                score[1]++
+            }
+            tossMsg.innerHTML = tossMsg.innerHTML + output +  "<br> Player " + score[0] + "  Computer " + score[1] 
+        }
+    
 
-
-const ArrMsgBtn = document.getElementById('ArrMsgBtn');
-
-ArrMsgBtn.addEventListener('click', function(){
-      let msg = ['Hello', 'Good Morning', 'Good Afternoon', 'Good Evening', 'Merry Christmas', 'How far', 'happy Val'];
-      let myrandom = Math.floor(Math.random() * msg.length)
-    //   console.log(myrandom)
-
-      function showMsgOnHTML(){
-         document.getElementById('arrMsg').innerHTML = msg[myrandom]
-      }
-      
-      showMsgOnHTML()
-})
 
