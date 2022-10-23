@@ -164,7 +164,7 @@ dayMsg.addEventListener('click', function(){
 
 })
 
-// challenge - Create a coin toss application that tells if its a head or a tail, Note: the game will be you vs computer
+// challenge 14- Create a coin toss application that tells if its a head or a tail, Note: the game will be you vs computer
 
 let tossMsg = document.querySelector('.message')
 const playerBtns = document.querySelectorAll('.btns')
@@ -191,4 +191,8 @@ for(let i = 0; i < playerBtns.length; i++){
         }
     
 
-
+// challenge 15 - rock paper scissors Game
+// player choice
+let playerChoice = prompt('Please enter between: rock, paper or scissors?')
+ 
+let computerChoice = Math.floor(Math.random() * 3)
