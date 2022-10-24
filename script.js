@@ -199,7 +199,9 @@ rpsBtn.addEventListener('click', function(){
 let playerChoice = prompt('Please enter between: rock, paper or scissors?') 
 let computerChoice = Math.ceil(Math.random() * 3)  // note: rock = 1,paper = 2, scissors = 3
 
-
+while (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
+    playerChoice = prompt('Invalid input, try again.');
+} 
 
 // computer variable 
 if (computerChoice === 1) {
