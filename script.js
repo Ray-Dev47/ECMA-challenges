@@ -193,6 +193,67 @@ for(let i = 0; i < playerBtns.length; i++){
 
 // challenge 15 - rock paper scissors Game
 // player choice
-let playerChoice = prompt('Please enter between: rock, paper or scissors?')
- 
-let computerChoice = Math.floor(Math.random() * 3)
+const rpsBtn = document.getElementById('rpsBtn')
+
+rpsBtn.addEventListener('click', function(){
+let playerChoice = prompt('Please enter between: rock, paper or scissors?') 
+let computerChoice = Math.ceil(Math.random() * 3)  // note: rock = 1,paper = 2, scissors = 3
+
+
+
+// computer variable 
+if (computerChoice === 1) {
+    computerChoice = "rock";
+} else if(computerChoice === 2) {
+    computerChoice = "paper";
+} else {
+    computerChoice = "scissors";
+}
+
+// defining the function
+function game(playerChoice, computerChoice){
+
+    // tie check
+    if(playerChoice == computerChoice){
+       return 'it is a tiesss'
+        // alert('It is a tie')
+    }
+
+    // rock win
+    if(playerChoice === 'rock'){
+        if( playerChoice === 'scissors'){
+           return  'Player Wins'
+        }
+    } else{
+        return 'Computer Win'
+    }
+
+    // paper wins
+    if(playerChoice === 'paper'){
+        if(computerChoice === 'scissors'){
+            return ('Computer Wins')
+        }
+        else{
+            return 'Player Wins'
+        }
+    }
+
+    // scissors win
+    if(playerChoice === 'scissors'){
+        if(computerChoice === 'rock'){
+           return 'Computer Wins'
+        }
+    } else{
+         return 'Player Wins'
+    }
+}
+
+console.log(game())
+game();
+console.log(playerChoice, computerChoice)
+alert(game(playerChoice, computerChoice))
+
+
+})
+
+
