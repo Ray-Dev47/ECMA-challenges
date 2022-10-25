@@ -199,6 +199,9 @@ rpsBtn.addEventListener('click', function(){
 let playerChoice = prompt('Please enter between: rock, paper or scissors?') 
 let computerChoice = Math.ceil(Math.random() * 3)  // note: rock = 1,paper = 2, scissors = 3
 
+while (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
+    playerChoice = prompt('Invalid input, try again.');
+} 
 
 
 // computer variable 
@@ -251,9 +254,31 @@ function game(playerChoice, computerChoice){
 console.log(game())
 game();
 console.log(playerChoice, computerChoice)
-alert(game(playerChoice, computerChoice))
-
 
 })
+
+
+// challene 16 - Create an interactive typing test for web users with javascript code with the features below
+
+/*
+Random Prases for typing test
+Counts start and end time
+Checks for errors count errors in words
+Show result
+*/ 
+
+const phrase =  `Africa will be great again!`
+const inputBox =  document.getElementById('textBox');
+const btnType = document.getElementById('btnType');
+const disp_Msg = document.querySelector('disp_Msg');
+
+btnType.addEventListener('click', function(){
+    let val = inputBox.value
+    console.log(val.length)
+    disp_Msg.innerHTML = `You typed a total of ${val.length} `
+
+})
+
+
 
 
