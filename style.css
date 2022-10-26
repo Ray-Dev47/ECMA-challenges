@@ -1,15 +1,7 @@
 
-
-h1{
-    color: red
-}
 #container{
      display: flex;
      justify-content: center;
      align-items: center;
 }
-h2{
-    background-color: tomato;
-    color: white;
-    padding: 20px;
-}
+
