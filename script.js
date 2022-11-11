@@ -31,18 +31,29 @@ btnType.addEventListener('click', function(){
     console.log( btnType.innerHTML) 
     if(this.innerHTML === 'Start'){
         inputBox.disabled = false
-        btnType.innerHTML = 'Done'
-        startPlayGame()
-    } 
-
-    let val = inputBox.value
-    console.log(val.length)
-    if(btnType.innerHTML == 'Done'){
-        btnType.addEventListener('click', function(){
-            val = disp_Msg.innerHTML = `You typed a total of ${val.length} words per minute`
-        })
-        console.log('clicked');
+        btnType.innerText = 'Done'
+        startPlayGame();
+    } else if(this.innerHTML === 'Done'){
+        inputBox.disabled = true;
+        btnType.innerText = 'Start'
+        inputBox.value = '';
+        endGame();
     }
+     
+    function endGame(){
+        let dateNow = new Date();
+        endTime = dateNow.getTime();
+        let totalTime = ((endTime - startTime)/1000);
+        console.log('totalTime', totalTime);
+    }
+    
+    // if(this.innerText == 'Done'){
+    //     let val = inputBox.value
+    //     this.addEventListener('click', function(){
+    //         // disp_Msg.innerHTML = `You typed a total of ${val.length} words per minute`
+    //     })
+    //     console.log('clicked');
+    // }
 
     function startPlayGame(){
         let ran_quotes = Math.floor(Math.random() * quotes_array.length);
