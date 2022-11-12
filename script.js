@@ -28,15 +28,15 @@ let endTime;
 
 btnType.addEventListener('click', function(){
 
-    console.log( btnType.innerHTML) 
     if(this.innerHTML === 'Start'){
         inputBox.disabled = false
         btnType.innerText = 'Done'
         startPlayGame();
     } else if(this.innerHTML === 'Done'){
+        
         inputBox.disabled = true;
         btnType.innerText = 'Start'
-        inputBox.value = '';
+        // inputBox.value = '';
         endGame();
     }
      
@@ -44,27 +44,31 @@ btnType.addEventListener('click', function(){
         let dateNow = new Date();
         endTime = dateNow.getTime();
         let totalTime = ((endTime - startTime)/1000);
-        console.log('totalTime', totalTime);
-    }
-    
-    // if(this.innerText == 'Done'){
-    //     let val = inputBox.value
-    //     this.addEventListener('click', function(){
-    //         // disp_Msg.innerHTML = `You typed a total of ${val.length} words per minute`
-    //     })
-    //     console.log('clicked');
-    // }
+        let str2 = inputBox.value;
+        console.log(inputBox.value)
+        let wordCount = wordCounter(str2);
+        let speed = Math.round((wordCount / totalTime)* 60)
+        console.log('your speed is:', speed)
 
+        disp_Msg.innerHTML = `You typed a total of ${speed} words per minute`
+    }
+
+    function wordCounter(strWords){
+        // let wordCount = inputBox.value;
+        let responseWord = strWords.split('').length;   
+        console.log(responseWord)    
+        return responseWord
+    }
+
+
+    
+ 
     function startPlayGame(){
         let ran_quotes = Math.floor(Math.random() * quotes_array.length);
         arrayQuotes.innerText = quotes_array[ran_quotes];
         let dateNow = new Date();
         // console.log(dateNow);
-        startTime = dateNow.getTime();
-        console.log(startTime);
-
-
-           
+        startTime = dateNow.getTime();   
         
     }
     
@@ -81,12 +85,12 @@ btnType.addEventListener('click', function(){
     // showRanQuotes();
     
 })
-// doneBtn.addEventListener('click', function(){
-//     let val = inputBox.value
-//     disp_Msg.innerHTML = `You typed a total of ${val.length} words per minute`
-
-// })
 
 
 
 
+// str.split refresher -splits a string object into an array of strings by separating the strings  
+// let str = 'The quick brown fox jumps over a lazy fox';  
+// let words = str.split(' ')
+// console.log(words);  // ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'a', 'lazy', 'fox']
+// console.log(words[5])  //jumps
