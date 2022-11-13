@@ -7,10 +7,15 @@ Checks for errors count errors in words
 Show result
 */ 
 
-   
+let quotes_array = [
+    "hello",
+    "god"
+    ]; 
+let startTime;
+let endTime; 
+const disp_Msg = document.querySelector('.disp_Msg');
 const inputBox =  document.getElementById('textBox');
 const btnType = document.getElementById('btnType');
-const disp_Msg = document.querySelector('.disp_Msg');
 const arrayQuotes = document.querySelector('.arrayQuotes');
 // let quotes_array = [
 //     "Push yourself, because no one else is going to do it for you.",
@@ -20,26 +25,14 @@ const arrayQuotes = document.querySelector('.arrayQuotes');
 //     "Learning never exhausts the mind.",
 //     "The only way to do great work is to love what you do."
 //     ];
-let quotes_array = [
-    "hello here",
-    "god is good"
-    ];
-
-let startTime;
-let endTime;
-
-
-
 btnType.addEventListener('click', function(){
-
-    if(this.innerHTML === 'Start'){
+    if(btnType.innerText == 'Start'){
         inputBox.disabled = false
-        btnType.innerText = 'Done'
+        btnType.innerText == 'Done'
         startPlayGame();
-    } else if(this.innerHTML === 'Done'){
-        
+    } else if(btnType.innerText == 'Done'){  
         inputBox.disabled = true;
-        btnType.innerText = 'Start'
+        btnType.innerText == 'Start'
         // inputBox.value = '';
         endGame();
     }
@@ -53,45 +46,32 @@ btnType.addEventListener('click', function(){
         let wordCount = wordCounter(str2);
         let speed = Math.round((wordCount / totalTime)* 60)
         // console.log( speed)
-        let finalMsg = `You typed at ${speed} words per minute.`
-        console.log(finalMsg);
+        let finalMsg = `You typed a total of ${str2.length} words at ${speed} words per minute.`
+        // console.log(finalMsg);
 
         if(str2 != disp_Msg.innerText){
-                finalMsg += "<br>There were some errors in the wording."
+              finalMsg = finalMsg + "<br> There were some errors in the wording."
+        } else{
+            finalMsg
         }
         disp_Msg.innerHTML = finalMsg
     }
 
     function wordCounter(strWords){
-        // let wordCount = inputBox.value;
-        let responseWord = strWords.split('').length;   
-        // console.log(responseWord)    
+        let responseWord = strWords.split("").length;   
+        console.log(responseWord)    
         return responseWord
     }
 
-
-    
- 
     function startPlayGame(){
         let ran_quotes = Math.floor(Math.random() * quotes_array.length);
         arrayQuotes.innerText = quotes_array[ran_quotes];
         let dateNow = new Date();
         // console.log(dateNow);
         startTime = dateNow.getTime();   
-        
+        btnType.innerText = 'Done'
     }
     
-    // // console.log(val.length)
-    // btnType.style.display = 'none'
-    // doneBtn.style.display = 'block'
-   
-
-    // let ran_quotes = Math.floor(Math.random() * quotes_array.length);
-    // function showRanQuotes(){
-    //     arrayQuotes.innerHTML = quotes_array[ran_quotes];
-
-    // }
-    // showRanQuotes();
     
 })
 
